@@ -1,0 +1,26 @@
+{
+  "exp_dir": "./model_dir/bedroom_10",
+  "batch_size": 64,
+  "category": "bedroom",
+  "debug": false,
+  "dim": [256, 256, 4992],
+  "deeplab_res": 256,
+  "number_class": 10,
+  "testing_data_number_class": 10,
+  "max_training": 24,
+  "stylegan_ver": "1",
+  "annotation_data_from_w": false,
+  "annotation_mask_path": "./dataset_release/annotation/training_data/bedroom_processed/renamed_24_corr",
+  "testing_path": "./dataset_release/annotation/testing_data/bedroom_class",
+  "average_latent": "./dataset_release/training_latent/bedroom_10/avg_latent_stylegan1.npy",
+  "annotation_image_latent_path": "./dataset_release/training_latent/bedroom_10/latent_stylegan1_selected_corr.npy",
+  "stylegan_checkpoint": "./checkpoints/stylegan_pretrain/karras2019stylegan-bedrooms-256x256.for_g_all.pt",
+  "model_num": 10,
+  "upsample_mode":"bilinear",
+  "pregen_latent": false,
+  "max_label": 9,
+  "local_files": false,
+  "n_processes": 1,
+  "epoch_best": 10
+}
+

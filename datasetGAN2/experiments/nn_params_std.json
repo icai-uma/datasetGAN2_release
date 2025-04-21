@@ -1,0 +1,7 @@
+{
+  "test_name": "std",
+  "dropout_1": false,
+  "dropout_2": false,
+  "dropout_prob_1": 0.2,
+  "dropout_prob_2": 0.2
+}

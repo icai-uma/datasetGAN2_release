@@ -1,0 +1,7 @@
+{ 
+  "test_name": "dropout_0208",
+  "dropout_1": true,
+  "dropout_2": true,
+  "dropout_prob_1": 0.2,
+  "dropout_prob_2": 0.8
+ }
