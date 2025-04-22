@@ -41,15 +41,15 @@ python3 -m pip install -r requirements_edgn_p.txt
 
 - *Download Face and Cat datasets from [DatasetGAN](https://drive.google.com/drive/folders/1Oa9XpyKnRSN5s9-ab2-5j3wvH374JOu8?usp=sharing)* and put it in the folder ***./datasetGAN/dataset_release***.  Please be aware that the dataset of DatasetGAN is released under the [Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license by NVIDIA Corporation.
 
-- *Download the Bedroom dataset and latents from <code style="color : red">add link to files*</code>  and make sure to place the dataset and the latents in the same path defined in the file  ***./experiments/bedroom_10.json***.
+- Download the Bedroom dataset and latents from [Google Drive](https://drive.google.com/drive/folders/1JA4GyZLe6emoOjYGXWEWiYtEPz8VJDtE?usp=sharing)  and make sure to place the dataset and the latents in the same path defined in the file  ***./experiments/bedroom_10.json***.
 
-- *Download pretrained checkpoints from [pytorch checkpoint](https://drive.google.com/drive/folders/1Hhu8aGxbnUtK-yHRD9BXZ3gn3bNNmsGi?usp=sharing). Put checkpoints in the folder of **./checkpoint/stylegan_pretrain***. Please be aware that the any code dependency and checkpoint related to Stylegan, the license is under the [Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license by NVIDIA Corporation.  
+- *Download pretrained checkpoints from [pytorch checkpoint](https://drive.google.com/drive/folders/1Hhu8aGxbnUtK-yHRD9BXZ3gn3bNNmsGi?usp=sharing). Put checkpoints in the folder of **./checkpoint/stylegan_pretrain***. Please be aware that the for code dependency and checkpoint related to Stylegan, the license is under the [Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license by NVIDIA Corporation.  
 
 
 ## 1. Dropout Architecture experiments
 
 ```
-cd convolutional_datasetGAN/conv_datasetGAN
+cd datasetGAN2_release/datasetGAN2
 ```
 
 ### 1.1. Interpreter 4-fold cross-validation
@@ -58,9 +58,9 @@ cd convolutional_datasetGAN/conv_datasetGAN
 python interpreter_cross_validation.py --n_processes <number_of_GPUs> --fold <fold_index> --exp experiments/<experiment_name>.json --classifier_param experiments/<dropout_configuration>.json --exp_dir model_dir/<dataset_folder>/<experiment_folder>
 ```
 
-If you are running the experiments for the first time, it is recommended to execute the code above for only one fold and wait for the execution to conclude. Then, the remaining three fold could be executed in parallel. This recommendation is because in the first execution the feature maps will be stored in the disk. After that, it the feature maps are already in disk, the code will not generate them again.
+If you are running the experiments for the first time, it is recommended to execute the code above for only one fold and wait for the execution to conclude. Then, the remaining three fold could be executed in parallel. This recommendation is because in the first execution the feature maps will be stored in the disk. After the feature maps are already in disk, the code will not generate them again.
 
-**Important:** The fold index must be a number within [0, 1, 2, 3]. In order to perform the 4-fold cross-validation all the folds must be executed.
+**Important:** The fold index must be a number within [0, 1, 2, 3]. All folds must be executed to perform the 4-fold cross-validation.
 
 Example:
 ```

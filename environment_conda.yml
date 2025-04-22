@@ -1,4 +1,4 @@
-name: test_c
+name: edgn_c
 channels:
   - defaults
   - conda-forge
