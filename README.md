@@ -32,19 +32,20 @@ conda activate edgn_c
 ```
 Then, create a virtual environment to manage the remaining libraries with pip as follows:
 ```
-python3 -m venv edgn_p
-source edgn_p/bin/activate
-python3 -m pip install -r requirements_edgn_p.txt
+python3 -m venv edgan_p
+source edgan_p/bin/activate
+python3 -m pip install -r requirements_edgan_p.txt
 ```
 
 ## Download the datasets
 
-- *Download Face and Cat datasets from [DatasetGAN](https://drive.google.com/drive/folders/1Oa9XpyKnRSN5s9-ab2-5j3wvH374JOu8?usp=sharing)* and put it in the folder ***./datasetGAN/dataset_release***.  Please be aware that the dataset of DatasetGAN is released under the [Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license by NVIDIA Corporation.
+- *Download Face and Cat datasets from [DatasetGAN](https://github.com/nv-tlabs/datasetGAN_release)* and put it in the folder `datasetGAN2_release/datasetGAN2/dataset_release/`.  Please be aware that the dataset of DatasetGAN is released under the [Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license by NVIDIA Corporation. 
 
-- Download the Bedroom dataset and latents from [Google Drive](https://drive.google.com/drive/folders/1JA4GyZLe6emoOjYGXWEWiYtEPz8VJDtE?usp=sharing)  and make sure to place the dataset and the latents in the same path defined in the file  ***./experiments/bedroom_10.json***.
+- Download the Bedroom dataset and latents from [Google Drive](https://drive.google.com/drive/folders/1JA4GyZLe6emoOjYGXWEWiYtEPz8VJDtE?usp=sharing)  and make sure to place the dataset and the latents in the same path defined in the file `datasetGAN2_release/datasetGAN2//experiments/bedroom_10.json`.
 
-- *Download pretrained checkpoints from [pytorch checkpoint](https://drive.google.com/drive/folders/1Hhu8aGxbnUtK-yHRD9BXZ3gn3bNNmsGi?usp=sharing). Put checkpoints in the folder of **./checkpoint/stylegan_pretrain***. Please be aware that the for code dependency and checkpoint related to Stylegan, the license is under the [Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license by NVIDIA Corporation.  
+- *Download pretrained checkpoints from [pytorch checkpoint](https://github.com/nv-tlabs/datasetGAN_release). Put checkpoints in the folder of **./checkpoint/stylegan_pretrain***. Please be aware that the for code dependency and checkpoint related to Stylegan, the license is under the [Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license by NVIDIA Corporation.  
 
+**Important**: our code requires that the images inside `datasetGAN2_release/datasetGAN2/dataset_release/annotation/training_data/<dataset_name>/` are in PNG format to work.
 
 ## 1. Dropout Architecture experiments
 
@@ -77,7 +78,7 @@ Example:
 python interpreter_cross_validation.py --generate_qualitative_results True --n_processes 1 --exp experiments/face_34.json --classifier_param experiments/nn_params_dropout_0604.json --exp_dir model_dir/face_34/dropout_60_40 --output_dir model_dir/face_34/dropout_60_40/visualisation
 ```
 
-## 2. Convolutional Architecture experiments
+## 2. Proposed (Convolutional) Architecture experiments
 
 ### 2.1. Interpreter 4-fold cross-validation
 ```
@@ -126,6 +127,6 @@ This work is partially supported by the Ministry of Science and Innovation of Sp
 
 For any code dependency related to Stylegan, the license is under the [Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license by NVIDIA Corporation.  To view a copy of this license, visit [LICENSE](https://github.com/NVlabs/stylegan/blob/master/LICENSE.txt ).
 
-The code dependency related to DatasetGAN is under the MIT license. See [LICENSE](https://github.com/nv-tlabs/datasetGAN_release/blob/release_finallll/LICENSE.txt) for additional details.
+The code dependency related to DatasetGAN is under the MIT license. See [LICENSE](https://github.com/nv-tlabs/datasetGAN_release/blob/master/LICENSE.txt) for additional details.
 
 For the datasets of DatasetGAN, the license is under the [Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license by NVIDIA Corporation. You can **use, redistribute, and adapt** the material for **non-commercial purposes**, as long as you give appropriate credit by **citing our paper** and **indicating any changes** that you've made.

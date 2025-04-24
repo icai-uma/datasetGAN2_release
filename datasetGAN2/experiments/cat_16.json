@@ -7,7 +7,7 @@
   "deeplab_res": 256,
   "number_class": 16,
   "testing_data_number_class": 16,
-  "max_training": 30,
+  "max_training": 28,
   "stylegan_ver": "1",
   "annotation_data_from_w": false,
   "annotation_mask_path": "./dataset_release/annotation/training_data/cat_processed",

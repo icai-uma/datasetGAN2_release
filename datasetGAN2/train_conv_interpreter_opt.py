@@ -52,7 +52,7 @@ import gc
 import pandas as pd
 from collections import OrderedDict
 from utils.datasetgan_utils import colorize_mask, latent_to_image, oht_to_scalar, Interpolate
-from utils import Adam16, LogSaver, join_img_maks, set_seed, memory_usage, put_color_mask
+from utils.utils import Adam16, LogSaver, join_img_maks, set_seed, memory_usage, put_color_mask
 from models.stylegan1 import G_mapping, Truncation, G_synthesis
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
