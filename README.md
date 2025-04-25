@@ -61,21 +61,11 @@ python interpreter_cross_validation.py --n_processes <number_of_GPUs> --fold <fo
 
 If you are running the experiments for the first time, it is recommended to execute the code above for only one fold and wait for the execution to conclude. Then, the remaining three fold could be executed in parallel. This recommendation is because in the first execution the feature maps will be stored in the disk. After the feature maps are already in disk, the code will not generate them again.
 
-**Important:** The fold index must be a number within [0, 1, 2, 3]. All folds must be executed to perform the 4-fold cross-validation.
+**Important:** The fold index must be a number within [0, 1, 2, 3]. All folds must be executed to perform the 4-fold cross-validation. 
 
 Example:
 ```
 python interpreter_cross_validation.py --n_processes 1 --fold 0 --exp experiments/face_34.json --classifier_param experiments/nn_params_dropout_0604.json --exp_dir model_dir/face_34/dropout_60_40
-```
-
-### 1.2. Generating qualitative metrics
-
-```
-python interpreter_cross_validation.py  --generate_qualitative_results True  --n_processes <number_of_GPUs> --exp experiments/<experiment_name>.json --classifier_param experiments/<dropout_configuration>.json --exp_dir model_dir/<dataset_folder>/<experiment_folder> --output_dir model_dir/<dataset_folder>/<experiment_folder>/visualisation
-```
-Example:
-```
-python interpreter_cross_validation.py --generate_qualitative_results True --n_processes 1 --exp experiments/face_34.json --classifier_param experiments/nn_params_dropout_0604.json --exp_dir model_dir/face_34/dropout_60_40 --output_dir model_dir/face_34/dropout_60_40/visualisation
 ```
 
 ## 2. Proposed (Convolutional) Architecture experiments
@@ -89,20 +79,10 @@ Example:
 python train_conv_interpreter_opt.py --exp experiments/bedroom_10_conv.json  --n_gpus 1 --fold_run 0 --seed 0 --float32 True --crossvalidate True
 ```
 **Important:** 
-- The seeds used for the two networks in the folds were 0 and 1 for all datasets experimented in the paper.
+- The seeds of the runs within the same fold must be different, otherwise both networks will reach identical results.
 - The fold index must be a number within [0, 1, 2, 3].
 
-### 2.2. Generate quantitative results
-The results are generated for each network for each epoch.
-```
-python train_conv_interpreter_opt.py ---exp experiments/<experiment_name>.json  --results_epoch <epoch_wth_the_best_results> --n_gpus <number_of_GPUs> --fold_run -1 --float32 True --output_dir /your/local/path/
-```
-Example:
-```
-python train_conv_interpreter_opt.py --exp experiments/cat_16_conv.json  --results_epoch 1 --n_gpus 2 --fold_run -1 --generate_metrics True --float32 True --output_dir /your/local/path/
-```
-
-### 2.3. Generate qualitative results
+### 2.2. Generate qualitative results
 The results are generated for each network for each epoch.
 ```
 python train_conv_interpreter_opt.py --exp experiments/<experiment_name>.json  --results_epoch <epoch_wth_the_best_results> --n_gpus <number_of_GPUs> --fold_run -1 --float32 True --generate_qualitative_results True --output_dir <path_to_save_the_results>
@@ -112,12 +92,16 @@ Example:
 python train_conv_interpreter_opt.py --exp experiments/cat_16_conv.json  --results_epoch 1 --n_gpus 1 --fold_run -1 --float32 True --generate_qualitative_results True --output_dir /your/local/path/
 ```
 
+## Disclaimer
+Due to inherent non-determinism in training (e.g., random seed initialization, hardware variability, number of GPUs), results may slightly vary on reruns.
+
 ## Citations
 
 Please include cite us if you use our data or code:
 
-<code style="color : red">Pending</code> 
-
+```
+Pending
+ ```
 
 ## Acknowledgments
 

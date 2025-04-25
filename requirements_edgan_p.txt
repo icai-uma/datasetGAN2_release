@@ -8,6 +8,7 @@ cmake==3.26.3
 contourpy==1.0.7
 cycler==0.11.0
 decorator==5.1.1
+et_xmlfile==2.0.0
 executing==1.2.0
 filelock==3.12.0
 Flask==2.0.1
@@ -44,6 +45,7 @@ nvidia-cusparse-cu11==11.7.4.91
 nvidia-nccl-cu11==2.14.3
 nvidia-nvtx-cu11==11.7.91
 opencv-python==4.7.0.72
+openpyxl==3.1.5
 packaging==23.1
 pandas==2.0.3
 parso==0.8.3
